@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
-</head>
-<body>
+    <title>Clicker Game</title>
     
+    <!--Links-->
+    <link href="styles.css" rel="stylesheet">
+    
+    <!--Scripts-->
+    <script src="main.js"></script>
+</head>
+
+<body>    
+    <!-- Score at the top -->
+    <div class="top-bar">
+        <div id="score" class="fixed-top bg-light p-2 text-center">0 clicks</div>
+    </div>
+
+    <!--Upgrades bar-->
+    <div class="upgrade-bar">
+        <div id="container">
+            <img id="hand" src="/images/autoclickhand.png" alt="hand clicker upgrade">
+            <p class="overlay-text">Increase clicker power</p>
+        </div>
+            <p id="upgrade-required" class="text-below">Cost: 10 clicks</p>
+    </div>
+    
+    <!--button-->
+    <div class="button">
+        <button onclick="incrementScore()">Click Me!</button>
+    </div>
 </body>
 </html>

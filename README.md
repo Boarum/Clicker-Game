@@ -1,0 +1,1 @@
+Clicker/Incremental game for the browser using javascript and HTML

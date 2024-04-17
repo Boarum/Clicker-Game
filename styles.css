@@ -1,0 +1,58 @@
+html {
+    background-color: rgba(0, 0, 0, .9);
+}
+
+.top-bar {
+    display: flex;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 25px;
+    background-color: rgba(128, 128, 128, .25);
+    color: white;
+    border-style: double;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+}
+
+.upgrade-bar {
+    display: flex;
+    font-family: monospace;
+    font-size: 12px;
+    background-color: rgba(128, 128, 128, .25);
+    color: white;
+    border-style: double;
+    position: relative;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+#hand {
+    opacity: .5;
+}
+
+#hand:hover {
+    opacity: 1;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-below {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
