@@ -9,10 +9,23 @@ body {
 }
 
 .top-bar {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
     background-color: rgba(128, 128, 128, .25);
     border-style: double;
+}
+
+#score {
+    text-align: center;
+    margin-left: 60px;
+}
+
+#gear {
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 5px;
 }
 
 .button {
@@ -33,6 +46,10 @@ button {
     border-style: double;
     position: relative;
     justify-content: center;
+}
+
+.playfield {
+    border-style: double;
 }
 
 #hand {

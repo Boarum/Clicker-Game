@@ -10,9 +10,12 @@
 </head>
 
 <body>    
-    <!-- Score at the top -->
+    <!--Top Bar-->
     <div class="top-bar">
-        <div id="score" class="fixed-top bg-light p-2 text-center">0 clicks</div>
+        <div id="score">0 clicks</div>
+        <div class="options">
+            <img id="gear" src="./images/gear.png" alt="options button">
+        </div>
     </div>
 
     <!--Upgrades bar-->
@@ -31,16 +34,19 @@
     </div>
     
     <!--button-->
-    <div class="button">
-        <button onclick="incrementScore()">Click Me!</button>
-    </div>
-
-    <div class="container">
-        <p id="clicker-power">Clicker Power: 1</p>
-        <p id="clicker-power-auto">Autoclick Power: 0</p>
+    <div class="playfield">
+        <div class="button">
+            <button onclick="incrementScore()">Click Me!</button>
+        </div>
+        <div class="container">
+            <p id="clicker-power">Clicker Power: 1</p>
+            <p id="clicker-power-auto">Autoclick Power: 0</p>
+        </div>
     </div>
     
     <!--Scripts-->
+    <script src="style.js"></script>
     <script src="main.js"></script>
+    <script src="save.js"></script>
 </body>
 </html>
