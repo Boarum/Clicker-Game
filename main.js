@@ -19,13 +19,7 @@ let a = upgrade_autoclick_amount
 document.getElementById("hand").addEventListener("click", incrementUpgradeHand)
 document.getElementById("auto").addEventListener("click", incrementUpgradeAuto)
 
-// Function to increment the score when the button is clicked
-function incrementScore() {   
-    score += s
-    // Update the score display
-    document.getElementById("score").textContent = score + ' clicks'
-
-    // change opacity of hand
+function opacitychangeonscore() {
     if (score >= upgrade_clicks_amount) {
         var element = document.getElementById("hand")
         element.style.transition = 'opacity 1s';
@@ -48,6 +42,31 @@ function incrementScore() {
         element.style.transition = 'opacity .1s';
         element.style.opacity = .1;
     }    
+}
+
+function opacitychangeonpurchase() {
+    // change opacity when upgrade is purchased
+    if (score <= upgrade_clicks_amount) {
+        var element = document.getElementById("hand")
+        element.style.transition = 'opacity .1s';
+        element.style.opacity = .1;
+    }
+
+    // change opacity when upgrade is purchased
+    if (score <= upgrade_autoclick_amount) {
+        var elements = document.getElementById("auto")
+        elements.style.transition = 'opacity .1s';
+        elements.style.opacity = .1;    
+    }
+}
+
+// Function to increment the score when the button is clicked
+function incrementScore() {   
+    score += s
+    // Update the score display
+    document.getElementById("score").textContent = score + ' clicks'
+
+    opacitychangeonscore()
 }
 
 function autoincrementscore() {
@@ -55,32 +74,10 @@ function autoincrementscore() {
     // Update the score display
     document.getElementById("score").textContent = score + ' clicks'
 
-    // change opacity of hand
-    if (score >= upgrade_clicks_amount) {
-        var element = document.getElementById("hand")
-        element.style.transition = 'opacity 1s';
-        element.style.opacity = 1;
-    }
-    else {
-        var element = document.getElementById("hand")
-        element.style.transition = 'opacity .1s';
-        element.style.opacity = .1;
-    }    
-
-    // change opacity of auto
-    if (score >= upgrade_autoclick_amount) {
-        var element = document.getElementById("auto")
-        element.style.transition = 'opacity 1s';
-        element.style.opacity = 1;
-    }
-    else {
-        var element = document.getElementById("auto")
-        element.style.transition = 'opacity .1s';
-        element.style.opacity = .1;
-    }    
+    opacitychangeonscore()
 }
 
-// call function every second
+// call function autoincrementscore every interval
 setInterval(autoincrementscore, 1000)
 
 // Function to increase click power
@@ -109,19 +106,8 @@ function incrementUpgradeHand() {
         document.getElementById("clicker-power").textContent = "Clicker Power: " + s
     }
     
-    // change opacity when upgrade is purchased
-    if (score <= upgrade_clicks_amount) {
-        var element = document.getElementById("hand")
-        element.style.transition = 'opacity .1s';
-        element.style.opacity = .1;
-    }
-
-    // change opacity when upgrade is purchased
-    if (score <= upgrade_autoclick_amount) {
-        var elements = document.getElementById("auto")
-        elements.style.transition = 'opacity .1s';
-        elements.style.opacity = .1;    
-}}
+    opacitychangeonpurchase()
+}
 
 function incrementUpgradeAuto() {
     if (score >= upgrade_autoclick_amount) {
@@ -147,17 +133,46 @@ function incrementUpgradeAuto() {
         // update html page with new autoclick power
         document.getElementById("clicker-power-auto").textContent = "Autoclick Power: " + c
 
-        // change opacity when upgrade is purchased
-    if (score <= upgrade_clicks_amount) {
-        var element = document.getElementById("hand")
-        element.style.transition = 'opacity .1s';
-        element.style.opacity = .1;
-    }
-
-    // change opacity when upgrade is purchased
-    if (score <= upgrade_autoclick_amount) {
-        var elements = document.getElementById("auto")
-        elements.style.transition = 'opacity .1s';
-        elements.style.opacity = .1;    
-    }
+        opacitychangeonpurchase()
 }}
+
+function newgame() {
+    // clear localstorage before storing new one
+    localStorage.clear()
+}
+
+function save() {
+    newgame()
+    // save to localstorage
+    localStorage.setItem('score', JSON.stringify(score))
+    localStorage.setItem('s', JSON.stringify(s))
+    localStorage.setItem('c', JSON.stringify(c))
+    localStorage.setItem('h', JSON.stringify(h))
+    localStorage.setItem('a', JSON.stringify(a))
+    localStorage.setItem('upgrade_clicks_amount', JSON.stringify(upgrade_clicks_amount))
+    localStorage.setItem('upgrade_autoclick_amount', JSON.stringify(upgrade_autoclick_amount))
+}
+
+function load() {
+    if (localStorage.getItem('score') != null) {
+
+    score = JSON.parse(localStorage.getItem('score'))
+    s = JSON.parse(localStorage.getItem('s',))
+    c = JSON.parse(localStorage.getItem('c',))
+    a = JSON.parse(localStorage.getItem('h',))
+    h = JSON.parse(localStorage.getItem('a',))
+    upgrade_clicks_amount = JSON.parse(localStorage.getItem('upgrade_clicks_amount',))
+    upgrade_autoclick_amount = JSON.parse(localStorage.getItem('upgrade_autoclick_amount',))
+
+    // load all text values on html
+    document.getElementById("upgrade-required-auto").textContent = "Cost: " + upgrade_autoclick_amount + " clicks";
+    document.getElementById("upgrade-required").textContent = "Cost: " + upgrade_clicks_amount + " clicks";
+    document.getElementById("clicker-power").textContent = "Clicker Power: " + s
+    document.getElementById("clicker-power-auto").textContent = "Autoclick Power: " + c
+    document.getElementById("score").textContent = score + ' clicks'
+}}
+
+// autoload game on refresh
+load()
+// autosave game every at intervals
+setInterval(save, 1000)
