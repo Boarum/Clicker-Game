@@ -37,11 +37,7 @@ button {
 }
 
 #hand {
-    opacity: .5;
-}
-
-#hand:hover {
-    opacity: 1;
+    opacity: .1;
 }
 
 .overlay-text {

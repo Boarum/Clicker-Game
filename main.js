@@ -15,6 +15,19 @@ function incrementScore() {
     score += s
     // Update the score display
     document.getElementById("score").textContent = score + ' clicks'
+
+    if (score >= upgrade_clicks_amount) {
+        // change opacity
+        var element = document.getElementById("hand")
+        element.style.transition = 'opacity 1s';
+        element.style.opacity = 1;
+    }
+    else {
+        var element = document.getElementById("hand")
+        element.style.transition = 'opacity .1s';
+        element.style.opacity = .1;
+    }
+    
 }
 
 function increaseClickerPower() {
@@ -44,8 +57,14 @@ function incrementHandUpgrade() {
         
         // update html page with new click power
         document.getElementById("clicker-power").textContent = "Click Power: " + s
-
     }    
+    
+    if (score <= upgrade_clicks_amount) {
+        // change opacity
+        var element = document.getElementById("hand")
+        element.style.transition = 'opacity .1s';
+        element.style.opacity = .1;
+    }
 }
 
 document.getElementById("hand").addEventListener("click", incrementHandUpgrade)
