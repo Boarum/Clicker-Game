@@ -18,7 +18,7 @@ body {
 .button {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 button {
@@ -33,28 +33,37 @@ button {
     border-style: double;
     position: relative;
     justify-content: center;
-    padding-bottom: 40px;
 }
 
 #hand {
     opacity: .1;
 }
 
+#auto {
+    opacity: .1;
+}
+
 .overlay-text {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    position: relative;
+    top: -5%;
+    justify-content: center;
 }
 
 .text-below {
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    position: relative;
+    top: -10%;
+    justify-content: center;
 }
 
-#clicker-power {
+#clicker-power, #clicker-power-auto {
     display: flex;
     justify-content: center;
+}
+
+.image-container {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
