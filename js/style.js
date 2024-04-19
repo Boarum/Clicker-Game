@@ -38,3 +38,13 @@ function opacitychangeonpurchase() {
         elements.style.opacity = .1;    
     }
 }
+
+function onOptionPress() {
+    var options = document.getElementById("options")
+    if (window.getComputedStyle(options).display == 'none') {
+        options.style.display = 'flex';
+    }
+    else {
+        options.style.display = '';
+    }
+}

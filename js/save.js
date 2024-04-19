@@ -1,7 +1,21 @@
+// autosave paused to newgame can function
+var autosavePaused = false;
+
 function newgame() {
-    // clear localstorage before storing new one
-    localStorage.clear()
-    location.reload();
+    autosavePaused = true;
+    setTimeout(function() {
+        localStorage.clear();
+        location.reload();
+    }, 250) // adjust delay as needed
+    
+}
+
+function ask() {
+    var didTheyPressOk = confirm("Are you sure? There is no turning back!")
+
+    if (didTheyPressOk) {
+        newgame();
+    }
 }
 
 function save() {
@@ -37,5 +51,37 @@ function load() {
 
 // autoload game on refresh
 load()
-// autosave game every at intervals
-setInterval(save, 1000)
+
+// autosave game every 
+if (!autosavePaused) {
+    setInterval(save, 1000)
+}
+
+function backupsave () {
+    var didTheyPressOk = confirm("This will download a copy of the game files to your harddrive. Do you want to continue?")
+    
+    if (didTheyPressOk) {
+        let myblob = new Blob([JSON.stringify({
+            score,
+            s,
+            c,
+            h,
+            a,
+            upgrade_clicks_amount,
+            upgrade_autoclick_amount
+        }, null, 2)], { type: 'text/plain' });
+        
+        let bloburl = URL.createObjectURL(myblob)
+    
+        let link = document.createElement("a");
+        link.href = bloburl;
+        link.download = "Clicker-Game.txt"; // Specify the default file name
+        link.click()
+    
+        URL.revokeObjectURL(bloburl)
+    }
+}
+
+function loadbackupsave() {
+    
+}

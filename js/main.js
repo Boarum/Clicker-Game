@@ -18,6 +18,7 @@ let a = upgrade_autoclick_amount
 // listen for a click
 document.getElementById("hand").addEventListener("click", incrementUpgradeHand)
 document.getElementById("auto").addEventListener("click", incrementUpgradeAuto)
+document.getElementById("gear").addEventListener("click", onOptionPress)
 
 // Function to increment the score when the button is clicked
 function incrementScore() {   

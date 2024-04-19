@@ -9,11 +9,18 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 
-<body>    
+<body>
+    <!--Options Bar-->
+    <div id="options">
+        <button onclick="ask()">New Game</button>
+        <button onclick="backupsave()">Create Save File</button>
+        <button onclick="undefined">Load Save File</button>
+    </div>
+
     <!--Top Bar-->
     <div class="top-bar">
         <div id="score">0 clicks</div>
-        <div class="options">
+        <div class="gear">
             <img id="gear" src="./images/gear.png" alt="options button">
         </div>
     </div>
@@ -43,10 +50,16 @@
             <p id="clicker-power-auto">Autoclick Power: 0</p>
         </div>
     </div>
+
+    <!--Instructions-->
+    <div class="instructions">
+        <h4>Instructions</h4>
+        <h5></h5>
+    </div>
     
     <!--Scripts-->
-    <script src="style.js"></script>
-    <script src="main.js"></script>
-    <script src="save.js"></script>
+    <script src="./js/style.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/save.js"></script>
 </body>
 </html>
