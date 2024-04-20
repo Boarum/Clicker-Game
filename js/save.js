@@ -53,7 +53,7 @@ function load() {
     document.getElementById("upgrade-required-reset").textContent = "Cost: " + reset_power_amount
     document.getElementById("clicker-power").textContent = "Clicker Power: " + s
     document.getElementById("clicker-power-auto").textContent = "Autoclick Power: " + c
-    document.getElementById("score").textContent = score + ' clicks'
+    document.getElementById("score").textContent = score
 }}
 
 // autoload game on refresh

@@ -18,7 +18,7 @@ let upgrade_autoclick_amount = 100
 let a = upgrade_autoclick_amount
 
 // Initialize the cost of reset power upgrade
-let reset_power_amount = 5000
+let reset_power_amount = 2500
 // how much cost to add to reset power upgrade
 let v = reset_power_amount
 
@@ -85,7 +85,7 @@ function incrementUpgradeAuto() {
         score = score - upgrade_autoclick_amount
 
         // update the score display
-        document.getElementById("score").textContent = score + ' clicks'
+        document.getElementById("score").textContent = score
 
         // Recalculate the cost of upgrade
         a = Math.round(upgrade_autoclick_amount * 1.50)
