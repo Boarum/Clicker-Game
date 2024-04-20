@@ -52,7 +52,15 @@ button {
     border-style: double;
 }
 
-#hand, #auto, #reset {
+#hand {
+    opacity: .1;
+}
+
+#auto {
+    opacity: 1;
+}
+
+#reset {
     opacity: .1;
 }
 
