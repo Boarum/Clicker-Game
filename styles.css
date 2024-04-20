@@ -104,3 +104,7 @@ button {
     display: none;
     text-align: center;
 }
+
+.wrapper {
+    display: flex;
+}

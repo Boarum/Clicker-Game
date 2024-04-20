@@ -83,9 +83,32 @@ function backupsave () {
 }
 
 function loadbackupsave() {
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-        
-    }
+    autosavePaused = true;
+    
+    document.getElementById('fileInput').addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const fileContents = e.target.result;
+        try {
+          const parsedData = JSON.parse(fileContents);
+  
+          // Update localStorage values
+          localStorage.setItem('score', parsedData.score);
+          localStorage.setItem('s', parsedData.s);
+          localStorage.setItem('c', parsedData.c);
+          localStorage.setItem('h', parsedData.h);
+          localStorage.setItem('a', parsedData.a);
+          localStorage.setItem('upgrade_clicks_amount', parsedData.upgrade_clicks_amount);
+          localStorage.setItem('upgrade_autoclick_amount', parsedData.upgrade_autoclick_amount);
+            
+          console.log('Data from file loaded into localStorage.');
+          location.reload();
+        } catch (error) {
+          console.error('Error parsing JSON data:', error);
+        }
+      };
+      reader.readAsText(file);
+    });
 }
+  
