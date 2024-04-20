@@ -18,7 +18,7 @@ let upgrade_autoclick_amount = 100
 let a = upgrade_autoclick_amount
 
 // Initialize the cost of reset power upgrade
-let reset_power_amount = 10000
+let reset_power_amount = 5000
 // how much cost to add to reset power upgrade
 let v = reset_power_amount
 
