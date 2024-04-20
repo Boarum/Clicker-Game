@@ -128,3 +128,7 @@ function loadbackupsave() {
     });
 }
 
+const beforeunloadListener = window.addEventListener('beforeunload', () => {
+    // Clear all of the browser's session data.
+    sessionStorage.clear();
+  });
