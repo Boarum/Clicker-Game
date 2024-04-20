@@ -52,11 +52,7 @@ button {
     border-style: double;
 }
 
-#hand {
-    opacity: .1;
-}
-
-#auto {
+#hand, #auto, #reset {
     opacity: .1;
 }
 
@@ -74,7 +70,7 @@ button {
     justify-content: center;
 }
 
-#clicker-power, #clicker-power-auto {
+#clicker-power, #clicker-power-auto, #clicker-reset {
     display: flex;
     justify-content: center;
 }

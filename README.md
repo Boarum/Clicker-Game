@@ -16,7 +16,9 @@ webpage look the way it does. In the Images folder I have the images used for th
 the upgrade functionality. The third folder is my javascript folder aptly named js. this hosts 3 files called main.js, save.js, style.js. The main.js has the primary
 logic for the game. This is where the score is calculated, the costs of the upgrades (and how the score is spent), and the event listeners for those functions. The save.js
 file contains all the code that is for autosaving the game is localstorage, starting a new game which clears all the game data values, backuping up the save data to your
-local pc, and the ability to load that data back into the game from the text file generated.
+local pc, and the ability to load that data back into the game from the text file generated. The style.js file is what controls how the upgrades indicate to the player when
+you have enough points to spend. They do this by changing opacity from .1 to 1. After the clicks are spent they return the images to .1 opacity unless more points can be
+spent.
 
 #### Description:
 Clicker-game is a basic cookie clicker clone. The concept of the game is to click a button on the webpage and everytime you do, you increase your click score by 1.

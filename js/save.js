@@ -26,8 +26,11 @@ function save() {
     localStorage.setItem('c', JSON.stringify(c))
     localStorage.setItem('h', JSON.stringify(h))
     localStorage.setItem('a', JSON.stringify(a))
+    localStorage.setItem('u', JSON.stringify(u))
+    localStorage.setItem('v', JSON.stringify(v))
     localStorage.setItem('upgrade_clicks_amount', JSON.stringify(upgrade_clicks_amount))
     localStorage.setItem('upgrade_autoclick_amount', JSON.stringify(upgrade_autoclick_amount))
+    localStorage.setItem('reset_power_amount', JSON.stringify(reset_power_amount))
 }
 
 function load() {
@@ -38,12 +41,16 @@ function load() {
     c = JSON.parse(localStorage.getItem('c',))
     a = JSON.parse(localStorage.getItem('h',))
     h = JSON.parse(localStorage.getItem('a',))
+    u = JSON.parse(localStorage.getItem('u',))
+    v = JSON.parse(localStorage.getItem('v',))
     upgrade_clicks_amount = JSON.parse(localStorage.getItem('upgrade_clicks_amount',))
     upgrade_autoclick_amount = JSON.parse(localStorage.getItem('upgrade_autoclick_amount',))
+    reset_power_amount = JSON.parse(localStorage.getItem('reset_power_amount',))
 
     // load all text values on html
     document.getElementById("upgrade-required-auto").textContent = "Cost: " + upgrade_autoclick_amount + " clicks";
     document.getElementById("upgrade-required").textContent = "Cost: " + upgrade_clicks_amount + " clicks";
+    document.getElementById("upgrade-required-reset").textContent = "Cost: " + reset_power_amount + " clicks";
     document.getElementById("clicker-power").textContent = "Clicker Power: " + s
     document.getElementById("clicker-power-auto").textContent = "Autoclick Power: " + c
     document.getElementById("score").textContent = score + ' clicks'
@@ -67,8 +74,11 @@ function backupsave () {
             c,
             h,
             a,
+            u,
+            v,
             upgrade_clicks_amount,
-            upgrade_autoclick_amount
+            upgrade_autoclick_amount,
+            reset_power_amount
         }, null, 2)], { type: 'text/plain' });
         
         let bloburl = URL.createObjectURL(myblob)
@@ -82,6 +92,9 @@ function backupsave () {
     }
 }
 
+// This function had a lot of help from AI and stackoverflow
+// I fully understand the localstorage feature as used in other parts of the game,
+// but the file reader section I struggled with even in the earlier parts of CS50x course.
 function loadbackupsave() {
     autosavePaused = true;
     
@@ -99,8 +112,11 @@ function loadbackupsave() {
           localStorage.setItem('c', parsedData.c);
           localStorage.setItem('h', parsedData.h);
           localStorage.setItem('a', parsedData.a);
+          localStorage.setItem('u', parsedData.u);
+          localStorage.setItem('v', parsedData.v);
           localStorage.setItem('upgrade_clicks_amount', parsedData.upgrade_clicks_amount);
           localStorage.setItem('upgrade_autoclick_amount', parsedData.upgrade_autoclick_amount);
+          localStorage.setItem('reset_power_amount', parsedData.reset_power_amount);
             
           console.log('Data from file loaded into localStorage.');
           location.reload();
@@ -111,4 +127,4 @@ function loadbackupsave() {
       reader.readAsText(file);
     });
 }
-  
+
