@@ -5,7 +5,6 @@ function newgame() {
     autosavePaused = true;
     setTimeout(function() {
         localStorage.clear();
-        sessionStorage.clear();
         location.reload();
     }, 250) // adjust delay as needed
     
