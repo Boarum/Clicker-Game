@@ -33,7 +33,7 @@ document.getElementById("reset").addEventListener("click", resetPower)
 function incrementScore() {   
     score += s * u
     // Update the score display
-    document.getElementById("score").textContent = score + ' clicks'
+    document.getElementById("score").textContent = score
 
     opacitychangeonscore()
 }
@@ -41,7 +41,7 @@ function incrementScore() {
 function autoincrementscore() {
     score += c * u
     // Update the score display
-    document.getElementById("score").textContent = score + ' clicks'
+    document.getElementById("score").textContent = score
 
     opacitychangeonscore()
 }
@@ -57,7 +57,7 @@ function incrementUpgradeHand() {
         score = score - upgrade_clicks_amount
 
         // Update the score display
-        document.getElementById("score").textContent = score + ' clicks'
+        document.getElementById("score").textContent = score
 
         // Recalculate the cost to add (h) based on the new upgrade_clicks_amount
         h = Math.round(upgrade_clicks_amount * 1.50)
@@ -66,7 +66,7 @@ function incrementUpgradeHand() {
         upgrade_clicks_amount += h
 
         // Update the required clicks
-        document.getElementById("upgrade-required").textContent = "Cost: " + upgrade_clicks_amount + " clicks";
+        document.getElementById("upgrade-required").textContent = "Cost: " + upgrade_clicks_amount
 
         // update click power
         s++
@@ -94,7 +94,7 @@ function incrementUpgradeAuto() {
         upgrade_autoclick_amount += a
 
         // Update the required clicks
-        document.getElementById("upgrade-required-auto").textContent = "Cost: " + upgrade_autoclick_amount + " clicks";
+        document.getElementById("upgrade-required-auto").textContent = "Cost: " + upgrade_autoclick_amount
 
         // update autoclick power
         c++
@@ -125,7 +125,7 @@ function resetPower() {
             upgrade_autoclick_amount = 100
 
             // update the score display
-            document.getElementById("score").textContent = score + ' clicks'
+            document.getElementById("score").textContent = score
 
             // Recalculate the cost of upgrade
             v = Math.round(reset_power_amount)
@@ -134,7 +134,7 @@ function resetPower() {
             reset_power_amount += v
 
             // Update the required clicks
-            document.getElementById("upgrade-required-reset").textContent = "Cost: " + reset_power_amount + " clicks";
+            document.getElementById("upgrade-required-reset").textContent = "Cost: " + reset_power_amount
 
             // update reset power
             u++
@@ -143,8 +143,8 @@ function resetPower() {
             document.getElementById("clicker-reset").textContent = "World: " + (u)
             document.getElementById("clicker-power-auto").textContent = "Autoclick Power: " + (c * u)
             document.getElementById("clicker-power").textContent = "Clicker Power: " + (s * u)
-            document.getElementById("upgrade-required-auto").textContent = "Cost: " + upgrade_autoclick_amount + " clicks";
-            document.getElementById("upgrade-required").textContent = "Cost: " + upgrade_clicks_amount + " clicks";
+            document.getElementById("upgrade-required-auto").textContent = "Cost: " + upgrade_autoclick_amount
+            document.getElementById("upgrade-required").textContent = "Cost: " + upgrade_clicks_amount
 
             location.reload
         }

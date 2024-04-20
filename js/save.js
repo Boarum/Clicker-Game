@@ -48,9 +48,9 @@ function load() {
     reset_power_amount = JSON.parse(localStorage.getItem('reset_power_amount',))
 
     // load all text values on html
-    document.getElementById("upgrade-required-auto").textContent = "Cost: " + upgrade_autoclick_amount + " clicks";
-    document.getElementById("upgrade-required").textContent = "Cost: " + upgrade_clicks_amount + " clicks";
-    document.getElementById("upgrade-required-reset").textContent = "Cost: " + reset_power_amount + " clicks";
+    document.getElementById("upgrade-required-auto").textContent = "Cost: " + upgrade_autoclick_amount
+    document.getElementById("upgrade-required").textContent = "Cost: " + upgrade_clicks_amount
+    document.getElementById("upgrade-required-reset").textContent = "Cost: " + reset_power_amount
     document.getElementById("clicker-power").textContent = "Clicker Power: " + s
     document.getElementById("clicker-power-auto").textContent = "Autoclick Power: " + c
     document.getElementById("score").textContent = score + ' clicks'
