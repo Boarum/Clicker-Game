@@ -5,9 +5,18 @@
 #### My Journey:
 I decided to create a basic clicker style game also known as an idle/incremental game. I wanted to leverage some of the tools I learned in the CS50x course. 
 I focused primarily on HTML, CSS, Javascript for the game. I also had to learn how Github desktop works to have version control and be able to upload to my github.
-I used GUMP a free open source program to edit the images used for my game. I also generated them using chat gpt-4. I built all my code into VS Code.
+I used GIMP a free open source program to edit the images used for my game. I also generated them using chat gpt-4. I built all my code into VS Code.
 It took a few hours to find the extensions to make everything work like it did in the web version given by CS50. I tried to originally build a python game using flask,
-but I had issues trying to get flask to stay operational. I ended up using live-server to simulate a local environment to make my webpage.
+but I had issues trying to get flask to stay operational. I ended up using live-server to simulate a local environment to make my webpage. I finally leveraged my
+skills from when I streamed on twitch to create my youtube video using OBS and Blender to record and edit my video.
+
+#### File Structure:
+In my project there is 3 main folders. In the main folder there is the index.html that hosts the main webpages form. Style.css handles all the styling to make the
+webpage look the way it does. In the Images folder I have the images used for the clicker-game. Primarily the gear icon to my options as well as the icons used for
+the upgrade functionality. The third folder is my javascript folder aptly named js. this hosts 3 files called main.js, save.js, style.js. The main.js has the primary
+logic for the game. This is where the score is calculated, the costs of the upgrades (and how the score is spent), and the event listeners for those functions. The save.js
+file contains all the code that is for autosaving the game is localstorage, starting a new game which clears all the game data values, backuping up the save data to your
+local pc, and the ability to load that data back into the game from the text file generated.
 
 #### Description:
 Clicker-game is a basic cookie clicker clone. The concept of the game is to click a button on the webpage and everytime you do, you increase your click score by 1.
