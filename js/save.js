@@ -83,5 +83,9 @@ function backupsave () {
 }
 
 function loadbackupsave() {
-    
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+        
+    }
 }
