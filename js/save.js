@@ -6,7 +6,7 @@ function newgame() {
     setTimeout(function() {
         localStorage.clear();
         location.reload();
-    }, 250) // adjust delay as needed
+    }, 500) // adjust delay as needed
     
 }
 
