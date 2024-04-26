@@ -1,5 +1,5 @@
 # Clicker-Game
-#### Video Demo:  <URL HERE>
+#### Video Demo: https://youtu.be/AGYU6-fq0TU
 #### Video Game: https://boarum.github.io/Clicker-Game/
 
 #### My Journey:
